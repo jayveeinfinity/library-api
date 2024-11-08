@@ -22,15 +22,6 @@ jobs:
       - name: Install dependencies
         run: composer install --no-dev --prefer-dist --no-plugins --no-scripts -q -o
 
-      - name: Ensure Server Directory Exists
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.GODADDY_FTP_SERVER }}
-          username: ${{ secrets.GODADDY_FTP_USERNAME }}
-          password: ${{ secrets.GODADDY_FTP_PASSWORD }}
-          command: "mkdir -p /path/on/server/your_folder" # Replace with the actual path on the server
-          continue-on-error: true # Ensures workflow continues even if folder exists
-
       - name: Upload files via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
