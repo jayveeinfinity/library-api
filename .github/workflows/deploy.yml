@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.GODADDY_FTP_USERNAME }}
           password: ${{ secrets.GODADDY_FTP_PASSWORD }}
           local-dir: ./ # adjust if only specific files need uploading
-          server-dir: ./
+          server-dir: ./_libray_API
 
       - name: Run migrations
         run: php artisan migrate --force
