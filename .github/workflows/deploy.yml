@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: composer install --no-dev --prefer-dist --no-plugins --no-scripts -q -o
 
-      - name: Install Node dependencies
-        run: npm install && npm run production
-
       - name: Upload files via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -32,7 +29,7 @@ jobs:
           username: ${{ secrets.GODADDY_FTP_USERNAME }}
           password: ${{ secrets.GODADDY_FTP_PASSWORD }}
           local-dir: ./ # adjust if only specific files need uploading
-          server-dir: /path/on/server/ # replace with your server's deploy path
+          server-dir: ./_libray_API
 
       - name: Run migrations
         run: php artisan migrate --force
