@@ -37,8 +37,8 @@ jobs:
           server: ${{ secrets.GODADDY_FTP_SERVER }}
           username: ${{ secrets.GODADDY_FTP_USERNAME }}
           password: ${{ secrets.GODADDY_FTP_PASSWORD }}
-          command: "mkdir -p /home/vmwki66izwq7/public_html/_libray_API/"
-          server-dir: /_libray_API/
+          local-dir: ./ # adjust if only specific files need uploading
+          server-dir: /_library_API/ # replace with your server's deploy path
 
       - name: Run migrations
         run: php artisan migrate --force
