@@ -9,11 +9,13 @@ use App\Http\Requests\StoreStudentRequest;
 class PatronController extends Controller
 {
     public function index() {
-        $patrons = Patron::all();
+        $patrons = Patron::orderBy('created_at', 'desc');
+
         return response()->json([
             'success' => true,
             'message' => 'List of patrons',
-            'data' => $patrons
+            'count' => $patrons->count(),
+            'data' => $patrons->get()
         ], 200);
     }
 

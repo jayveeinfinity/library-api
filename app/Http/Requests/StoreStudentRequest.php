@@ -27,6 +27,7 @@ class StoreStudentRequest extends FormRequest
      {
          return [
             'first_name' => 'required|string|max:255',
+            'middle_name' => 'nullable|string|max:255',
             'last_name' => 'required|string|max:255',
             'birthday' => 'required|date',
             'sex' => 'nullable|in:male,female,others',
@@ -46,8 +47,8 @@ class StoreStudentRequest extends FormRequest
             'primary_contact' => 'nullable|in:phone,email,secondary_email,secondary_phone,other_phone',
              
             'card_number' => 'required|string|size:9|unique:patrons,card_number',
-            'college' => 'nullable|string|max:255',
-            'course' => 'nullable|string|max:255',
+            'college' => 'required|string|max:255',
+            'course' => 'required|string|max:255',
              
             'registration_date' => 'required|date',
             'expiry_date' => 'required|date|after:registration_date',
